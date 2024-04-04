@@ -1,0 +1,29 @@
+﻿@model Dish
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h4>@Model.Name</h4>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img src="@Model.ImageUrl" style="width: 70%; object-fit:cover" />
+    </div>
+    <div class="d-flex justify-content-center">
+        @Model.Price.ToString()$
+    </div>
+    <div class="d-flex justify-content-center">
+        ingredients:
+        <ul>
+            @foreach(var i in Model.DishIngredients)
+            {
+                <li>
+                    @i.Ingredient.Name
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-info" asp-action="Index">Menu</a>
+    </div>
+</div>
